@@ -12,4 +12,5 @@ export const courseRoutes: CourseRoute[] = [
     name: "Data Types",
     component: DataTypes,
   },
+  // add other module components here, as we build them
 ];
