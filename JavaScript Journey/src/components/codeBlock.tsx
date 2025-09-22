@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 type CodeBlockProps = {
   title: string;
@@ -11,7 +13,6 @@ export default function CodeBlock({
   description,
   initialCode,
 }: CodeBlockProps) {
-  const [codeText, setCodeText] = useState(initialCode);
   const [output, setOutput] = useState<string>("");
 
   const runCode = () => {
@@ -34,11 +35,11 @@ export default function CodeBlock({
       console.log = customLog;
 
       // Run the user's code
-      new Function(codeText)();
+      new Function(initialCode)();
 
       console.log = originalLog;
     } catch (err) {
-      logs.push(`Error: ${(err as Error).message}`);
+      logs.push(`❌ Error: ${(err as Error).message}`);
     }
 
     setOutput(logs.join("\n"));
@@ -52,11 +53,19 @@ export default function CodeBlock({
       <p className="text-gray-300 mb-4">{description}</p>
 
       {/* Editable code area */}
-      <textarea
-        className="w-full h-40 p-4 bg-gray-900 text-yellow-400 font-mono rounded-lg resize-y"
-        value={codeText}
-        onChange={(e) => setCodeText(e.target.value)}
-      />
+      {/* Highlighted code with line numbers */}
+      <SyntaxHighlighter
+        language="javascript"
+        style={vscDarkPlus}
+        showLineNumbers
+        customStyle={{
+          borderRadius: "0.75rem",
+          padding: "1rem",
+          fontSize: "0.875rem",
+        }}
+      >
+        {initialCode}
+      </SyntaxHighlighter>
 
       <div className="flex justify-center mt-4">
         <button
