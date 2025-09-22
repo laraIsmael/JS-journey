@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CourseNavigation from "../CourseNavigation";
+// import CourseNavigation from "../CourseNavigation";
 import NavigationButtons from "../NavigatorButtons";
 
 export default function DataTypes() {
@@ -85,13 +85,16 @@ console.log(variable);`;
       </div>
 
       <div className="w-full max-w-3xl flex-1">
-        <CourseNavigation />
+        {/* <CourseNavigation /> */}
         <div className="w-full max-w-4xl bg-gray-800 rounded-2xl shadow-2xl p-6 sm:p-10 my-8">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-purple-400 mb-6 text-center">
-            Core JavaScript Data Types
+            Data Types
           </h1>
           <p className="text-gray-400 text-lg sm:text-xl text-center mb-10">
-            Learn the fundamental building blocks of JavaScript.
+            Every value in JavaScript belong to a data type. There are eight
+            basic data types and in this chapter we will look into them. Data
+            type is a foundatial consept in JavaScrip, so it is a good place to
+            start. So let's jump inot it!
           </p>
 
           {/* --- String Section --- */}
