@@ -3,41 +3,50 @@ import CodeBlock from "../codeBlock";
 
 export default function Variables() {
   const letTitle = "Declaring a variable";
-  const letDescriptio =
-    "line 1 declaring a variable hello. \n line 2 adding a value to that ";
-  const letCode = `  // declaring a variable:
-  let hello;
-  
-  // adding a value to the variable we just created:
-  hello = "Hello,";
+  const letDescription = `Variables are declared with the keyword 'let'. You can declare first and assign a value later, or do both at once. Let's see some examples:`;
+  const letCode = `// Declaration only:
+let hello;
 
-  // both steps can be done at once:
-  let name = "JavaScript";
+// Assigning a value to the variable we just created:
+hello = "Hello,";
 
-  // now we can access that values by using the variable name, 
-  console.log(hello, name)
-  `;
+// Both steps combined:
+let name = "JavaScript";
 
-  const constTitle = "Const or Let";
-  const constDescriptio =
-    "When declaring a variable you can use the keyword let or const. The difference is that let can change its values where const (constant) as the name suggests can not. \n If you want to make sure a variable will not change naming it const will ensure that is the case and will tell other people reading your code that as well. Let's look at some examples:";
-  const constCode = `  // declating a varibale with the keyword const. As much as I want to not age my birhtday eyar will continue to be the same, so let's create a variable that stores my day of birth:
-  const myBirthday = "01/25/1988"
+// Accessing the values:
+console.log(hello, name);
+`;
 
-  // if we try cnaging that value we will get an error.
-  myBirthday = 01/25/2000;
+  const constTitle = "Const vs Let";
+  const constDescription = `Variables can also be declared with 'const'. That way the value of the variable, as the name suggests, is constant and cannot be reassigned.
+— Note: objects or arrays declared with 'const' can still have their contents modified. This is because of how JavaScript stores those values. More on this later.
+Use 'const' when you want a variable to remain bound to the same reference:`;
+  const constCode = `// Declaring a constant:
+const myBirthday = "01/25/1988";
 
-  // If you run the code above ypou will see we get an error. Try it out!`;
+// Trying to reassign will cause an error:
+// Remove the // in front of the line below to see the error
+// myBirthday = "01/25/2000"; // ❌ Error
 
-  const taskTitle = "Now it's your turn to try:";
-  const taskDescriptio =
-    '1. Declare two variables: admin and name. \n 2. Assign the value "JavaScript" to the variable name. \n 3. Copy the value from name to admin. \n ';
-  const taskCode = `  //write your code starting on line 2.
-  
-  
-  // this console.log will print your answers. We want to see that both name and admin have the value of JavaScript
-  console.log(name);
-  console.log(name, admin);`;
+// Objects and arrays are mutable even when declared with const:
+const arr = [1, 2];
+arr.push(3); // ✅ Allowed
+// arr = [4,5]; // ❌ Not allowed
+
+console.log(arr);
+`;
+
+  const taskTitle = "Now it's your turn";
+  const taskDescription = `1. Declare two variables: 'admin' and 'name'.
+2. Assign the value 'JavaScript' to 'name'.
+3. Copy the value from 'name' to 'admin'.
+Hint: Use 'let' for the variables so you can assign values step by step.`;
+  const taskCode = `// Write your code starting on line 2:
+
+
+console.log(name);
+console.log(name, admin);
+`;
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center p-6 sm:p-10 transition-all duration-300">
@@ -50,41 +59,77 @@ export default function Variables() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-green-400 mb-6 text-center">
             Variables
           </h1>
-          <p className="text-gray-400 text-lg sm:text-xl text-center mb-10">
-            Variables are JavaScript's labels.
-            <br />
-            It gets stored and becomes accessible through out the program.
-            <br />
-            <p className="text-gray-400 text-sm mt-4 italic">
-              - There are more details regarding the accessibility of a
-              variables, we will talk about that later.
+
+          {/* Introduction */}
+          <section className="text-gray-400 text-lg sm:text-xl text-left mb-10">
+            <p className="whitespace-pre-wrap">
+              Variables are JavaScript's labels. They store data and make it
+              accessible throughout your program.
+              {"\n\n"}
+              <span className="text-gray-400 text-sm italic">
+                There are additional details regarding variable accessibility,
+                which we’ll cover later.
+              </span>
+              {"\n\n"}
+              Variable names can include letters, numbers, _, and $, but cannot
+              start with a number. There are also a few reserved keywords in
+              JavaScript that cannot be used as variable names.
+              {"\n\n"}
+              Example that will work:
             </p>
-            <br />
-            To create or declare a variable in JavaScript we use the keyword{" "}
-            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
-              let
-            </code>{" "}
-            after that we add a name that will be our reference to that variable
-            that we can access at any point. Let's look at an example to make
-            things more clear.
-          </p>
+            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+              let $name;
+              {"\n"}let name;
+              {"\n"}let _name;
+            </code>
+            <p className="whitespace-pre-wrap mt-4">
+              Example that will not work:
+            </p>
+            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+              let 1name;
+              {"\n"}let let;
+              {"\n"}let const;
+            </code>
+            <p className="whitespace-pre-wrap mt-4">
+              To declare a variable, use the keyword{" "}
+              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+                let
+              </code>{" "}
+              or{" "}
+              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+                const
+              </code>
+              , followed by the variable name. Let’s look at examples below.
+            </p>
+          </section>
+
+          {/* Let example */}
           <CodeBlock
             title={letTitle}
-            description={letDescriptio}
+            description={letDescription}
             initialCode={letCode}
           />
+
+          <hr className="my-8 border-gray-700" />
+
+          {/* Const example */}
           <CodeBlock
             title={constTitle}
-            description={constDescriptio}
+            description={constDescription}
             initialCode={constCode}
           />
+
+          <hr className="my-8 border-gray-700" />
+
+          {/* Task */}
           <CodeBlock
             title={taskTitle}
-            description={taskDescriptio}
+            description={taskDescription}
             initialCode={taskCode}
           />
         </div>
       </div>
+
       <footer className="mt-8 text-sm text-gray-500 text-center">
         <p>Built with React, Vite, and Tailwind CSS</p>
       </footer>

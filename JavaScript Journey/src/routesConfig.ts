@@ -9,7 +9,7 @@ export interface CourseRoute {
 
 export const courseRoutes: CourseRoute[] = [
   {
-    path: "/variabless",
+    path: "/variables",
     name: "Variables",
     component: Variables,
   },
