@@ -1,60 +1,10 @@
 import { useState } from "react";
 import NavigationButtons from "../NavigatorButtons";
 import CodeBlock from "../codeBlock";
+import ReservedKeywordPopUp from "./jsReservedKeywords";
 
 export default function Variables() {
   const [showKeywords, setShowKeywords] = useState(false);
-
-  const reservedKeywords = [
-    "break",
-    "case",
-    "catch",
-    "class",
-    "const",
-    "continue",
-    "debugger",
-    "default",
-    "delete",
-    "do",
-    "else",
-    "export",
-    "extends",
-    "finally",
-    "for",
-    "function",
-    "if",
-    "import",
-    "in",
-    "instanceof",
-    "new",
-    "return",
-    "super",
-    "switch",
-    "this",
-    "throw",
-    "try",
-    "typeof",
-    "var",
-    "void",
-    "while",
-    "with",
-    "let",
-    "yield",
-    "await",
-  ];
-
-  const reservedLiterals = ["null", "true", "false"];
-
-  const futureReserved = [
-    "enum",
-    "implements",
-    "interface",
-    "package",
-    "private",
-    "protected",
-    "public",
-    "static",
-  ];
 
   const letTitle = "Declaring a variable";
   const letDescription = `Variables are declared with the keyword 'let'. You can declare first and assign a value later, or do both at once. Let's see some examples:`;
@@ -132,102 +82,14 @@ console.log(name, admin);
                 onClick={() => setShowKeywords(true)}
                 className="px-5 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold text-white transition-colors duration-200"
               >
-                Keyword List
+                Reserved Keyword List
               </button>
             </div>
             {/* Popup Modal */}
             {showKeywords && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-gray-800 rounded-2xl shadow-xl p-6 max-w-2xl w-full overflow-y-auto max-h-[90vh]">
-                  {/* Header with Title + Close Button */}
-                  <div className="flex justify-between items-center mb-4">
-                    <h2 className="text-2xl font-bold text-green-400">
-                      Reserved Words in JavaScript
-                    </h2>
-                    <button
-                      onClick={() => setShowKeywords(false)}
-                      className="px-3 py-1 bg-green-600 hover:bg-green-700 rounded-lg font-semibold text-white transition-colors duration-200"
-                    >
-                      ✕
-                    </button>
-                  </div>
-                  <p className="text-gray-300 mb-6">
-                    In JavaScript, there are several words that have a special
-                    meaning to the language's interpreter and cannot be used as
-                    variable names. If you try to use one of these words, you'll
-                    get a syntax error.
-                  </p>
-
-                  {/* Reserved Keywords */}
-                  <h3 className="text-xl font-semibold text-green-300 mb-2">
-                    Reserved Keywords
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    These are words with a specific purpose, such as defining
-                    variables or controlling the flow of a program.
-                  </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6 text-gray-300 font-mono">
-                    {reservedKeywords.map((word) => (
-                      <span
-                        key={word}
-                        className="bg-gray-900 px-2 py-1 rounded text-center"
-                      >
-                        {word}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Reserved Literals */}
-                  <h3 className="text-xl font-semibold text-green-300 mb-2">
-                    Reserved Literals
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    These are words that represent fixed values in the language.
-                  </p>
-                  <div className="flex gap-2 flex-wrap mb-6 text-gray-300 font-mono">
-                    {reservedLiterals.map((word) => (
-                      <span
-                        key={word}
-                        className="bg-gray-900 px-2 py-1 rounded"
-                      >
-                        {word}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Future Reserved */}
-                  <h3 className="text-xl font-semibold text-green-300 mb-2">
-                    Future Reserved Keywords
-                  </h3>
-                  <p className="text-gray-400 mb-4">
-                    These words are not currently in use in all JavaScript
-                    implementations but are reserved for potential future use.
-                    It's a good practice to avoid them to prevent future
-                    conflicts.
-                  </p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6 text-gray-300 font-mono">
-                    {futureReserved.map((word) => (
-                      <span
-                        key={word}
-                        className="bg-gray-900 px-2 py-1 rounded text-center"
-                      >
-                        {word}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Close Button */}
-                  <div className="flex justify-end mt-6">
-                    <button
-                      onClick={() => setShowKeywords(false)}
-                      className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold text-white transition-colors duration-200"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ReservedKeywordPopUp onClose={() => setShowKeywords(false)} />
             )}
+
             <p className="whitespace-pre-wrap">
               {"\n\n"}
               To declare a variable, use the keyword{"  "}
@@ -239,15 +101,16 @@ console.log(name, admin);
               {"\n\n"}
               Example that will work:
             </p>
-            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+            <code className="mt-4 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
               let $name;
               {"\n"}let name;
               {"\n"}let _name;
             </code>
             <p className="whitespace-pre-wrap mt-4">
+              {"\n"}
               Example that will not work:
             </p>
-            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+            <code className="mt-4 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
               let 1name;
               {"\n"}let let;
               {"\n"}let const;
@@ -256,37 +119,55 @@ console.log(name, admin);
               {"\n"}After creating the variable, you can assign data to it using
               the assignment operator{"  "}=
             </p>
-            <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
-              let name = "JavaScript";
+            <code className="mt-4 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre-wrap">
+              <span className="text-green-400">name = "JavaScript" </span>
+              <span className="text-gray-400">
+                // if the variable was already declared (created) we just need
+                to assign it a value.
+              </span>
+              {"\n\n"}
+              <span className="text-green-400">let name = "JavaScript" </span>
+              <span className="text-gray-400">
+                // declaring (created) the variable with the let keyword and
+                assigning it a value in one line.
+              </span>
             </code>
             <p className="whitespace-pre-wrap mt-4">
+              {"\n"}
               Now we can access it by the variable name.
             </p>
-            <code className="bg-gray-900 px-2 py-1 rounded font-mono block whitespace-pre">
+            <code className="mt-4 bg-gray-900 px-2 py-1 rounded font-mono block whitespace-pre">
               <span className="text-green-400">alert(name);</span>{" "}
               <span className="text-gray-400">
                 // shows the variable content
               </span>
             </code>
             <p className="whitespace-pre-wrap mt-4">
+              {"\n"}
               Think of variables as drawers, and JavaScript as a dresser that
               contains multiple drawers. When we create a variable by giving it
               a name, JavaScript labels one of its drawers and puts whatever
               value you set inside it.
               <br />
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+              <code className="mt-4 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
                 let name = "JavaScript";
               </code>
               <br />
               So following our dresser analogy above, we now have a drawer
-              labeled <code>name</code> and inside it the value "JavaScript."
-              Now let’s say you want to change the value inside the variable
-              <code> name</code>. That’s no problem—JavaScript would open the
-              drawer, take out the value "JavaScript," and put the new value
-              there. Let’s make it have the value "Hello, World!" instead:
+              labeled <strong>name</strong> and inside it the value{" "}
+              <strong>"JavaScript"</strong>.{"\n"}Now let’s say you want to
+              change the value inside the variable <strong>name</strong>. That’s
+              no problem, JavaScript would "open" the drawer, take out the value
+              <strong> JavaScript</strong> and put the new value in its place.
+              {"\n"}Let’s change the value inside our <strong>name</strong>{" "}
+              drawer to be "Hello, World!" instead:
               <br />
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
-                let name = "Hello, World!";
+              <code className="mt-4 bg-gray-900 px-2 py-1 rounded font-mono block whitespace-pre-wrap">
+                <span className="text-green-400">name = "Hello, World!";</span>{" "}
+                <span className="text-gray-400">
+                  // we don't need the let keyword since we already declared our
+                  variable above.
+                </span>
               </code>
               <br />
               Now when we try to use the variable <code>name</code>, we will see{" "}
@@ -299,7 +180,7 @@ console.log(name, admin);
               </code>
               . We can also declare two variables and copy the data from one to
               the other:
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+              <code className="mt-4 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
                 <span className="text-green-400">
                   let name = "Hello, World!";
                   {"\n"}

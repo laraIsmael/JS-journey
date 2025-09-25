@@ -77,13 +77,11 @@ export default function CodeBlock({
   };
 
   return (
-    <section className="mb-10 bg-gray-700 p-6 rounded-xl shadow-inner">
+    <section className="mb-10 bg-gray-700 p-6 rounded-xl shadow-inner text-base sm:text-lg">
       <h2 className="flex justify-center text-2xl sm:text-3xl font-bold text-white mb-2">
         {title}
       </h2>
-      <p className="text-gray-300 text-sm whitespace-pre-wrap mb-4">
-        {description}
-      </p>
+      <p className="text-gray-300 whitespace-pre-wrap mb-4">{description}</p>
 
       {/* Editable code area */}
       <Editor
@@ -100,14 +98,14 @@ export default function CodeBlock({
               margin: 0,
             }}
             codeTagProps={{
-              className: "font-mono text-sm leading-6",
+              className: "font-mono text-lg leading-6",
             }}
           >
             {code}
           </SyntaxHighlighter>
         )}
         padding={16}
-        className="rounded-lg bg-gray-800 font-mono text-sm leading-6 text-gray-100"
+        className="rounded-lg bg-gray-800 font-mono leading-6 text-gray-100"
       />
 
       {/* Controls */}
