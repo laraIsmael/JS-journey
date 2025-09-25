@@ -350,7 +350,9 @@ console.log(name, admin);
           />
         </div>
       </div>
-
+      <div className="w-full flex justify-between mb-6">
+        <NavigationButtons />
+      </div>
       <footer className="mt-8 text-sm text-gray-500 text-center">
         <p>Built with React, Vite, and Tailwind CSS</p>
       </footer>
