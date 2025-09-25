@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import CourseNavigation from "../CourseNavigation";
+import CourseNavigation from "../CourseNavigation";
 import NavigationButtons from "../NavigatorButtons";
 
 export default function DataTypes() {
