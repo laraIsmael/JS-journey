@@ -93,7 +93,7 @@ console.log(name, admin);
             <p className="whitespace-pre-wrap">
               {"\n\n"}
               To declare a variable, use the keyword{"  "}
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono text-base sm:text-lg">
                 let
               </code>
               {"  "}
@@ -171,11 +171,11 @@ console.log(name, admin);
               </code>
               <br />
               Now when we try to use the variable <code>name</code>, we will see{" "}
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono text-base sm:text-lg">
                 "Hello, World!"
               </code>{" "}
               and no longer{" "}
-              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+              <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono text-base sm:text-lg">
                 "JavaScript"
               </code>
               . We can also declare two variables and copy the data from one to
