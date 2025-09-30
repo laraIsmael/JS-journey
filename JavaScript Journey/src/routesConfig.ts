@@ -1,6 +1,6 @@
+import Intro from "./intro";
 import Variables from "./components/Module1/variables";
 import DataTypes from "./components/Module1/data-types";
-import Intro from "./intro";
 
 export interface CourseRoute {
   path: string;
@@ -10,7 +10,7 @@ export interface CourseRoute {
 
 export const courseRoutes: CourseRoute[] = [
   {
-    path: "/Intro",
+    path: "/intro",
     name: "Intro",
     component: Intro,
   },

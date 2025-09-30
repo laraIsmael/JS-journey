@@ -6,8 +6,8 @@ import Intro from "./intro";
 export default function App() {
   return (
     <div className="flex min-h-screen bg-gray-900 text-white">
-      {/* Sidebar (we’ll expand later) */}
-      <aside className="hidden md:block w-64 bg-gray-800 p-4">
+      {/* Sidebar */}
+      <aside className="hidden md:block w-64 bg-gray-800 p-4 sticky top-0 h-screen overflow-y-auto">
         <CourseNavigation />
       </aside>
 

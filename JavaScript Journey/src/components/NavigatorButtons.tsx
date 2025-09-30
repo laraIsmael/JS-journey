@@ -15,10 +15,9 @@ export default function NavigationButtons() {
     currentIndex > 0
       ? courseRoutes[currentIndex - 1]
       : pathname !== "/"
-      ? { path: "/", name: "Back to Intro" }
+      ? { path: "/", name: "Intro" }
       : null;
 
-  // no next module yet
   const nextRoute: CourseRoute | null =
     currentIndex >= 0 && currentIndex < courseRoutes.length - 1
       ? courseRoutes[currentIndex + 1]
