@@ -7,7 +7,7 @@ import "prismjs/components/prism-javascript";
 
 type CodeBlockProps = {
   title: string;
-  description: string;
+  description?: string;
   initialCode: string;
 };
 
@@ -81,7 +81,9 @@ export default function CodeBlock({
       <h2 className="flex justify-center text-2xl sm:text-3xl font-bold text-white mb-2">
         {title}
       </h2>
-      <p className="text-gray-300 whitespace-pre-wrap mb-4">{description}</p>
+      {description && (
+        <p className="text-gray-300 whitespace-pre-wrap mb-4">{description}</p>
+      )}
 
       {/* Editable code area */}
       <Editor
@@ -112,26 +114,26 @@ export default function CodeBlock({
       <div className="flex flex-wrap justify-center gap-3 mt-4">
         <button
           onClick={runCode}
-          className="px-5 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold text-white transition-colors duration-200"
+          className="px-5 py-2 bg-teal-300 hover:bg-teal-400 rounded-lg font-semibold text-white transition-colors duration-200"
         >
           Run Code
         </button>
         <button
           onClick={resetCode}
-          className="px-5 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-lg font-semibold text-white transition-colors duration-200"
+          className="px-5 py-2 bg-teal-600 hover:bg-teal-700 rounded-lg font-semibold text-white transition-colors duration-200"
         >
           Reset
         </button>
         <button
           onClick={copyCode}
-          className="px-5 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold text-white transition-colors duration-200"
+          className="px-5 py-2 bg-teal-800 hover:bg-teal-900 rounded-lg font-semibold text-white transition-colors duration-200"
         >
           {copied ? "Copied!" : "Copy"}
         </button>
       </div>
 
       {/* Output */}
-      <pre className="mt-4 p-4 bg-gray-800 rounded-lg text-sm text-lime-400 whitespace-pre-wrap max-h-60 overflow-y-auto">
+      <pre className="mt-4 p-4 bg-gray-800 rounded-lg text-sm text-teal-400 whitespace-pre-wrap max-h-60 overflow-y-auto">
         {output || "Output will appear here..."}
       </pre>
     </section>

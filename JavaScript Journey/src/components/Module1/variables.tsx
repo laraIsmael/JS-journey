@@ -6,54 +6,8 @@ import ComponentBase from "../componentBase";
 export default function Variables() {
   const [showKeywords, setShowKeywords] = useState(false);
 
-  const letTitle = "Declaring a variable";
-  const letDescription = `Variables are declared with the keyword 'let'. You can declare first and assign a value later, or do both at once. Let's see some examples:`;
-  const letCode = `// Declaration only:
-let hello;
-
-// Assigning a value to the variable we just created:
-hello = "Hello,";
-
-// Both steps combined:
-let name = "JavaScript";
-
-// Accessing the values:
-console.log(hello, name);
-`;
-
-  const constTitle = "Const vs Let";
-  const constDescription = `Variables can also be declared with 'const'. That way the value of the variable, as the name suggests, is constant and cannot be reassigned.
-— Note: objects or arrays declared with 'const' can still have their contents modified. This is because of how JavaScript stores those values. More on this later.
-Use 'const' when you want a variable to remain bound to the same reference:`;
-  const constCode = `// Declaring a constant:
-const myBirthday = "01/25/1988";
-
-// Trying to reassign will cause an error:
-// Remove the // in front of the line below to see the error
-// myBirthday = "01/25/2000"; // ❌ Error
-
-// Objects and arrays are mutable even when declared with const:
-const arr = [1, 2];
-arr.push(3); // ✅ Allowed
-// arr = [4,5]; // ❌ Not allowed
-
-console.log(arr);
-`;
-
-  const taskTitle = "Now it's your turn";
-  const taskDescription = `1. Declare two variables: 'admin' and 'name'.
-2. Assign the value 'JavaScript' to 'name'.
-3. Copy the value from 'name' to 'admin'.
-Hint: Use 'let' for the variables so you can assign values step by step.`;
-  const taskCode = `// Write your code starting on line 2:
-
-
-console.log(name);
-console.log(name, admin);
-`;
-
   return (
-    <ComponentBase title="Variables" color="green">
+    <ComponentBase title="Variables" color="teal">
       {/* Introduction */}
       <section className="text-gray-400 text-lg sm:text-xl text-left mb-10">
         <p className="whitespace-pre-wrap">
@@ -72,7 +26,7 @@ console.log(name, admin);
         <div className="flex justify-center mt-8">
           <button
             onClick={() => setShowKeywords(true)}
-            className="px-5 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-semibold text-white transition-colors duration-200"
+            className="px-5 py-2 bg-teal-600 hover:bg-teal-700 rounded-lg font-semibold text-white transition-colors duration-200"
           >
             Reserved Keyword List
           </button>
@@ -84,21 +38,21 @@ console.log(name, admin);
 
         <p className="whitespace-pre-wrap mt-6">
           To declare a variable, you usually start with{" "}
-          <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono text-base sm:text-lg">
+          <code className="bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono text-base sm:text-lg">
             let
           </code>{" "}
           followed by the name you want JavaScript to remember it by.
         </p>
 
         <p className="mt-4">✅ Works fine:</p>
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre">
           let $name;
           {"\n"}let name;
           {"\n"}let _name;
         </code>
 
         <p className="mt-4">❌ Throws errors:</p>
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre">
           let 1name;
           {"\n"}let let;
           {"\n"}let const;
@@ -110,25 +64,21 @@ console.log(name, admin);
           two steps or do it all at once:
         </p>
 
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre-wrap">
-          let name = "JavaScript";{" "}
-          <span className="text-gray-400 text-sm">
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre-wrap">
+          let name = "JavaScript";{"\n"}
+          <span className="text-gray-400">
             // declaring AND assigning in one go
           </span>
           {"\n\n"}
           let name;
-          <span className="text-gray-400 text-sm">
-            // declaring the variable name
-          </span>
+          <span className="text-gray-400">// declaring the variable name</span>
           {"\n"}name = "JavaScript";{" "}
-          <span className="text-gray-400 text-sm">
-            // now assigning a value to it
-          </span>
+          <span className="text-gray-400">// now assigning a value to it</span>
         </code>
 
         <p className="whitespace-pre-wrap mt-6">
           Back to our dresser analogy: if we write{" "}
-          <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono text-base sm:text-lg">
+          <code className="bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono text-base sm:text-lg">
             let name = "JavaScript";
           </code>
           , that’s like putting a sticky note on one drawer that says{" "}
@@ -137,8 +87,8 @@ console.log(name, admin);
           drawer, tosses the old value, and puts in the new one.
         </p>
 
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre-wrap">
-          name = "Hello, World!";{" "}
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre-wrap">
+          name = "Hello, World!";{"\n"}
           <span className="text-gray-400">
             // the drawer now holds "Hello, World!"
           </span>
@@ -148,7 +98,7 @@ console.log(name, admin);
           You can even copy values from one drawer to another:
         </p>
 
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre">
           let name = "Hello, World!";
           {"\n"}let hello;
           {"\n"}hello = name;{" "}
@@ -159,28 +109,28 @@ console.log(name, admin);
 
         <p className="whitespace-pre-wrap mt-6">
           Alright, plot twist — what happens if we change the value of{" "}
-          <code className="bg-gray-900 px-1 py-0.5 rounded text-green-400 font-mono">
+          <code className="bg-gray-900 px-1 py-0.5 rounded text-teal-400 font-mono">
             name
-          </code>
+          </code>{" "}
           to be <strong>"some new value"</strong>? Take a guess: what do you
           think{" "}
-          <code className="bg-gray-900 px-1 py-0.5 rounded text-green-400 font-mono">
+          <code className="bg-gray-900 px-1 py-0.5 rounded text-teal-400 font-mono">
             hello
-          </code>
+          </code>{" "}
           will hold now?
         </p>
 
-        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-green-400 font-mono block whitespace-pre">
+        <code className="mt-2 bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono block whitespace-pre">
           let name = "some new value";
         </code>
 
         <p className="whitespace-pre-wrap mt-6">
           Trick question! Changing{" "}
-          <code className="bg-gray-900 px-1 py-0.5 rounded text-green-400 font-mono">
+          <code className="bg-gray-900 px-1 py-0.5 rounded text-teal-400 font-mono">
             name
           </code>{" "}
           doesn’t magically update{" "}
-          <code className="bg-gray-900 px-1 py-0.5 rounded text-green-400 font-mono">
+          <code className="bg-gray-900 px-1 py-0.5 rounded text-teal-400 font-mono">
             hello
           </code>
           . JavaScript basically just slaps a new label on a fresh drawer for{" "}
@@ -199,27 +149,53 @@ console.log(name, admin);
 
       {/* Let example */}
       <CodeBlock
-        title={letTitle}
-        description={letDescription}
-        initialCode={letCode}
+        title={"Declaring a variable"}
+        description={`Variables are declared with the keyword 'let'. You can declare first and assign a value later, or do both at once. Let's see some examples:`}
+        initialCode={`// Declaration only:
+let hello;
+
+// Assigning a value to the variable we just created:
+hello = "Hello,";
+
+// Both steps combined:
+let name = "JavaScript";
+
+// Accessing the values:
+console.log(hello, name);
+`}
       />
 
       <hr className="my-8 border-gray-700" />
 
       {/* Const example */}
       <CodeBlock
-        title={constTitle}
-        description={constDescription}
-        initialCode={constCode}
+        title={"Const vs Let"}
+        description={`Variables can also be declared with 'const'. That way the value of the variable, as the name suggests, is constant and cannot be reassigned.
+Use 'const' when you want a variable to remain bound to the same reference:`}
+        initialCode={`// Declaring a constant:
+const myBirthday = "01/25/1988";
+// reassign const will trigger an error. 
+myBirthday = "01/25/2000"; 
+
+console.log(myBirthday);
+`}
       />
 
       <hr className="my-8 border-gray-700" />
 
       {/* Task */}
       <CodeBlock
-        title={taskTitle}
-        description={taskDescription}
-        initialCode={taskCode}
+        title={`Now it's your turn`}
+        description={`1. Declare two variables: 'admin' and 'name'.
+2. Assign the value 'JavaScript' to 'name'.
+3. Copy the value from 'name' to 'admin'.
+Hint: Use 'let' for the variables so you can assign values step by step.`}
+        initialCode={`// Write your code starting on line 2:
+
+
+console.log(name);
+console.log(name, admin);
+`}
       />
     </ComponentBase>
   );

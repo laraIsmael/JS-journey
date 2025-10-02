@@ -37,7 +37,7 @@ export default function NavigationButtons() {
       {nextRoute && (
         <button
           onClick={() => navigate(nextRoute.path)}
-          className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-500"
+          className="px-4 py-2 bg-teal-600 rounded-lg hover:bg-teal-500"
         >
           {nextRoute.name} →
         </button>

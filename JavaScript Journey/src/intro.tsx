@@ -6,7 +6,7 @@ export default function Intro() {
 
   return (
     <div className="bg-gray-800 p-8 sm:p-12 rounded-3xl shadow-2xl max-w-2xl w-full text-center mx-auto">
-      <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-400 mb-4">
+      <h1 className="text-4xl sm:text-5xl font-extrabold text-teal-400 mb-4">
         Hello Coder.
       </h1>
       <p className="text-gray-300 text-lg sm:text-xl mb-6">
@@ -19,7 +19,7 @@ export default function Intro() {
       {/* Console.log note */}
       <p className="text-gray-400 text-sm mt-4 italic">
         💡 Quick note: Throughout this course, we’ll use{" "}
-        <code className="bg-gray-900 px-2 py-1 rounded text-green-400 font-mono">
+        <code className="bg-gray-900 px-2 py-1 rounded text-teal-400 font-mono">
           console.log
         </code>{" "}
         to show what our JavaScript is doing. Don’t worry if this feels new—
@@ -29,7 +29,7 @@ export default function Intro() {
 
       {/* Course roadmap */}
       <div className="bg-gray-900 rounded-xl p-6 mt-8 text-left">
-        <h2 className="text-2xl font-bold text-purple-400 mb-3">
+        <h2 className="text-2xl font-bold text-teal-400 mb-3">
           🚀 What We’ll Explore Together
         </h2>
         <ul className="list-disc list-inside space-y-2 text-gray-300 text-sm sm:text-base">
@@ -65,7 +65,7 @@ export default function Intro() {
 
       <div className="flex flex-col items-center justify-center space-y-4 mt-10">
         <button
-          className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 transition-colors duration-200 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105"
+          className="bg-teal-500 hover:bg-teal-600 active:bg-teal-700 transition-colors duration-200 text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105"
           onClick={() => navigate(courseRoutes[1].path)}
         >
           Let’s Go!
